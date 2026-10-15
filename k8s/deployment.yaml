@@ -27,7 +27,7 @@ spec:
     spec:
       containers:
         - name: food-portal
-          image: YOUR_DOCKERHUB_USERNAME/online-food-ordering:latest
+          image: syedsaifu/online-food-ordering:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 80

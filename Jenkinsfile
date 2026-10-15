@@ -8,7 +8,7 @@ pipeline {
 
     environment {
         // Change this if your Docker Hub username/repository differs.
-        DOCKERHUB_REPO = 'syedsaifullah/online-food-ordering'
+        DOCKERHUB_REPO = 'syedsaifu/online-food-ordering'
         DOCKERHUB_CREDENTIALS = 'dockerhub-creds'
         KUBECONFIG_CREDENTIALS = 'docker-desktop-kubeconfig'
         FOOD_SERVICE = 'food-portal-service'
