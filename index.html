@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Online Food Ordering Portal</title>
+
+<!-- RELEASE_CHECK: MENU_READY_FOR_TRAFFIC -->
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #202938;
+    background: #fffaf3;
+}
+
+header {
+    background: #26352c;
+    color: white;
+    padding: 20px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+header h1 {
+    margin: 0;
+}
+
+header p {
+    margin: 5px 0 0;
+    color: #e5f0e6;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.hero {
+    padding: 45px 7%;
+    background: #ffe3cc;
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: 38px;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 18px;
+}
+
+.rating {
+    display: inline-block;
+    background: white;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+main {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+}
+
+section {
+    margin: 35px 0;
+}
+
+.categories {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    border-radius: 7px;
+    padding: 11px 16px;
+    font-weight: bold;
+}
+
+.category {
+    background: #e5e9e4;
+}
+
+.category.active {
+    background: #26352c;
+    color: white;
+}
+
+.menu {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.food-card {
+    background: white;
+    padding: 20px;
+    border-radius: 13px;
+    border: 1px solid #eadfd2;
+    box-shadow: 0 4px 12px #0000000d;
+}
+
+.food-icon {
+    font-size: 48px;
+}
+
+.food-card h3 {
+    margin-bottom: 8px;
+}
+
+.price {
+    color: #c44d22;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.availability {
+    display: block;
+    color: #21804a;
+    margin: 10px 0;
+}
+
+.add-btn {
+    background: #e86d36;
+    color: white;
+}
+
+.offers {
+    background: #26352c;
+    color: white;
+    padding: 25px;
+    border-radius: 12px;
+}
+
+.details, .cart {
+    background: white;
+    padding: 22px;
+    border-radius: 12px;
+    border: 1px solid #eadfd2;
+}
+
+.cart-line {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+}
+
+#message {
+    color: #21804a;
+    font-weight: bold;
+}
+
+footer {
+    background: #26352c;
+    color: white;
+    text-align: center;
+    padding: 22px;
+    margin-top: 45px;
+}
+
+@media (max-width: 750px) {
+    .menu {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h2 {
+        font-size: 28px;
+    }
+
+    header {
+        gap: 15px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div>
+        <h1>🍴 Spice Route Kitchen</h1>
+        <p>Fresh food, prepared with care</p>
+    </div>
+
+    <nav>
+        <a href="#menu">Menu</a>
+        <a href="#offers">Offers</a>
+        <a href="#restaurant">Restaurant</a>
+    </nav>
+</header>
+
+<div class="hero">
+    <h2>Your Favourite Food, Delivered Fresh!</h2>
+    <p>Explore delicious meals at affordable prices.</p>
+    <div class="rating">⭐ 4.8/5 Customer Rating</div>
+    <p>Delivery time: 25–35 minutes</p>
+</div>
+
+<main>
+
+<section id="menu">
+    <h2>Our Food Menu</h2>
+    <p>Select a category and add food items to your order.</p>
+
+    <div class="categories">
+        <button class="category active" data-category="all">All</button>
+        <button class="category" data-category="pizza">Pizza</button>
+        <button class="category" data-category="burger">Burgers</button>
+        <button class="category" data-category="bowl">Bowls</button>
+        <button class="category" data-category="dessert">Desserts</button>
+    </div>
+
+    <div class="menu">
+
+        <article class="food-card" data-category="pizza">
+            <div class="food-icon">🍕</div>
+            <h3>Classic Margherita</h3>
+            <p>Fresh mozzarella, tomato sauce and basil.</p>
+            <div class="price">₹249</div>
+            <span class="availability">● Available now</span>
+            <button class="add-btn"
+                data-name="Classic Margherita"
+                data-price="249">Add to Cart</button>
+        </article>
+
+        <article class="food-card" data-category="burger">
+            <div class="food-icon">🍔</div>
+            <h3>Veggie Supreme Burger</h3>
+            <p>Crispy patty, lettuce and signature sauce.</p>
+            <div class="price">₹179</div>
+            <span class="availability">● Available now</span>
+            <button class="add-btn"
+                data-name="Veggie Supreme Burger"
+                data-price="179">Add to Cart</button>
+        </article>
+
+        <article class="food-card" data-category="bowl">
+            <div class="food-icon">🥗</div>
+            <h3>Garden Power Bowl</h3>
+            <p>Fresh vegetables, grains and house dressing.</p>
+            <div class="price">₹229</div>
+            <span class="availability">● Available now</span>
+            <button class="add-btn"
+                data-name="Garden Power Bowl"
+                data-price="229">Add to Cart</button>
+        </article>
+
+        <article class="food-card" data-category="dessert">
+            <div class="food-icon">🍰</div>
+            <h3>Chocolate Fudge Cake</h3>
+            <p>Rich chocolate cake with a soft fudge centre.</p>
+            <div class="price">₹149</div>
+            <span class="availability">● Available now</span>
+            <button class="add-btn"
+                data-name="Chocolate Fudge Cake"
+                data-price="149">Add to Cart</button>
+        </article>
+
+    </div>
+</section>
+
+<section id="offers" class="offers">
+    <h2>🎉 Special Promotional Offers</h2>
+    <p>Get 20% off your first order using code WELCOME20.</p>
+    <p>Free delivery on orders above ₹499.</p>
+</section>
+
+<section id="restaurant" class="details">
+    <h2>Restaurant Details</h2>
+    <p><strong>Name:</strong> Spice Route Kitchen</p>
+    <p><strong>Location:</strong> Vellore, Tamil Nadu</p>
+    <p><strong>Opening Hours:</strong> 10:00 AM – 11:00 PM</p>
+    <p><strong>Phone:</strong> +91 90000 12345</p>
+    <p><strong>Status:</strong> Accepting orders</p>
+</section>
+
+<section class="cart" id="cart">
+    <h2>🛒 Your Shopping Cart</h2>
+
+    <div id="cart-items">Your cart is empty.</div>
+    <h3>Total: ₹<span id="total">0</span></h3>
+
+    <button id="checkout" class="add-btn">Place Order</button>
+    <button id="clear">Clear Cart</button>
+
+    <p id="message" aria-live="polite"></p>
+</section>
+
+</main>
+
+<footer>
+    <p>© 2026 Spice Route Kitchen</p>
+    <p>Online Food Ordering Portal | DevOps Demonstration Project</p>
+</footer>
+
+<script>
+const cart = new Map();
+
+const cartItems = document.getElementById("cart-items");
+const totalElement = document.getElementById("total");
+const message = document.getElementById("message");
+
+function renderCart() {
+    let total = 0;
+    cartItems.innerHTML = "";
+
+    if (cart.size === 0) {
+        cartItems.textContent = "Your cart is empty.";
+    }
+
+    cart.forEach((item, name) => {
+        total += item.price * item.quantity;
+
+        const line = document.createElement("div");
+        line.className = "cart-line";
+
+        const description = document.createElement("span");
+        description.textContent =
+            name + " x " + item.quantity;
+
+        const amount = document.createElement("span");
+        amount.textContent =
+            "₹" + item.price * item.quantity;
+
+        line.append(description, amount);
+        cartItems.appendChild(line);
+    });
+
+    totalElement.textContent = total;
+}
+
+document.querySelectorAll(".add-btn").forEach(button => {
+    if (!button.dataset.name) return;
+
+    button.addEventListener("click", () => {
+        const name = button.dataset.name;
+        const price = Number(button.dataset.price);
+
+        if (!cart.has(name)) {
+            cart.set(name, {price: price, quantity: 0});
+        }
+
+        cart.get(name).quantity++;
+
+        message.textContent = name + " added to cart.";
+        renderCart();
+    });
+});
+
+document.querySelectorAll(".category").forEach(button => {
+    button.addEventListener("click", () => {
+        document.querySelectorAll(".category").forEach(item => {
+            item.classList.remove("active");
+        });
+
+        button.classList.add("active");
+
+        document.querySelectorAll(".food-card").forEach(card => {
+            card.style.display =
+                button.dataset.category === "all" ||
+                card.dataset.category === button.dataset.category
+                    ? "block" : "none";
+        });
+    });
+});
+
+document.getElementById("clear").addEventListener("click", () => {
+    cart.clear();
+    message.textContent = "Cart cleared.";
+    renderCart();
+});
+
+document.getElementById("checkout").addEventListener("click", () => {
+    if (cart.size === 0) {
+        message.textContent = "Please add an item before ordering.";
+        return;
+    }
+
+    cart.clear();
+    renderCart();
+
+    message.textContent =
+        "Thank you for ordering from Spice Route Kitchen! " +
+        "Your demo order has been received.";
+});
+
+renderCart();
+</script>
+
+</body>
+</html>
